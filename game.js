@@ -30,12 +30,27 @@ function countUp(startTime) {
 }
 //koniec odliczania czasu
 
+//ustawianie koloru tla
+function displayBGC() {
+    for (let i = 0;i<=15; i++){
+        if (cards[i].textContent == i+1) {
+            cards[i].className = 'correct'
+        }
+        else if(cards[i].textContent == "") {
+            cards[i].className = 'empty'
+        }
+        else{
+            cards[i].className = 'square' 
+        }
+    }
+}
+//
+
 //funkcjonalnosc przycisku start/restart
 const initialization = function() {
     const startTime = new Date().getTime();
     let countUpTimer = setInterval(countUp,1000)
     if (currentTime!==0){
-        console.log('dziala')
         clearTimeout(countUpTimer)
         currentTime=0
     }
@@ -44,6 +59,8 @@ const initialization = function() {
     for (let i = 15;i>=0; i--){
         cards[i].textContent = board[i];
     }
+    //ustawianie koloru tla dla square
+    displayBGC();
 }
 //koniec dzialania przycisku
 
