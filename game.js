@@ -4,13 +4,13 @@ const button = document.querySelector("button");
 const timer = document.querySelector('#timer');
 let cards = document.querySelectorAll("div");
 cards = [...cards];
-console.log(cards);
+// console.log(cards);
 
 let currentTime = 0;
 let IsStarted = 0;
 
 //przetasowanie tablicy z numerami
-console.log(board);
+// console.log(board);
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -55,14 +55,291 @@ const initialization = function() {
         currentTime=0
     }
     shuffle(board);
-    console.log(shuffle(board));
+    // console.log(shuffle(board));
     for (let i = 15;i>=0; i--){
         cards[i].textContent = board[i];
     }
     //ustawianie koloru tla dla square
     displayBGC();
+    IsStarted = 1;
+    console.log(IsStarted)
+    return IsStarted=1;
 }
 //koniec dzialania przycisku
+console.log(IsStarted)
+//funkcjonalnosci divow
+const gameNotStarted = function() {
+    alert('Game not started!')
+}
+
+const cornerCase0 = function() {
+    if(cards[1].textContent === ""){
+        cards[1].textContent = cards[0].textContent
+        cards[0].textContent = ""
+    } 
+    else if(cards[4].textContent === ""){
+        cards[4].textContent = cards[0].textContent
+        cards[0].textContent = ""
+    }
+    displayBGC();
+}
+const cornerCase3 = function() {
+    if(cards[2].textContent === ""){
+        cards[2].textContent = cards[3].textContent
+        cards[3].textContent = ""
+    } 
+    else if(cards[7].textContent === ""){
+        cards[7].textContent = cards[3].textContent
+        cards[3].textContent = ""
+    }
+    displayBGC();
+}
+const cornerCase12 = function() {
+    if(cards[8].textContent === ""){
+        cards[8].textContent = cards[12].textContent
+        cards[12].textContent = ""
+    } 
+    else if(cards[13].textContent === ""){
+        cards[13].textContent = cards[12].textContent
+        cards[12].textContent = ""
+    }
+    displayBGC();
+}
+const cornerCase15 = function() {
+    if(cards[11].textContent === ""){
+        cards[11].textContent = cards[15].textContent
+        cards[15].textContent = ""
+        } 
+    else if(cards[14].textContent === ""){
+        cards[14].textContent = cards[15].textContent
+        cards[15].textContent = ""
+        }
+    displayBGC();
+}
+
+const edgeCase1 = function() {
+    if(cards[0].textContent === "") {
+        cards[0].textContent = cards[1].textContent
+        cards[1].textContent = ""
+    } 
+    else if(cards[2].textContent === "") {
+        cards[2].textContent = cards[1].textContent
+        cards[1].textContent = ""
+    }
+    else if(cards[5].textContent === ""){
+        cards[5].textContent = cards[1].textContent
+        cards[1].textContent = ""
+    }
+    displayBGC();
+}
+const edgeCase2 = function() {
+    if(cards[1].textContent === "") {
+        cards[1].textContent = cards[2].textContent
+        cards[2].textContent = ""
+    } 
+    else if(cards[3].textContent === "") {
+        cards[3].textContent = cards[2].textContent
+        cards[2].textContent = ""
+    }
+    else if(cards[6].textContent === ""){
+        cards[6].textContent = cards[2].textContent
+        cards[2].textContent = ""
+    }
+    displayBGC();
+}
+const edgeCase4 = function() {
+    if(cards[0].textContent === "") {
+        cards[0].textContent = cards[4].textContent
+        cards[4].textContent = ""
+    } 
+    else if(cards[5].textContent === "") {
+        cards[5].textContent = cards[4].textContent
+        cards[4].textContent = ""
+    }
+    else if(cards[8].textContent === ""){
+        cards[8].textContent = cards[4].textContent
+        cards[4].textContent = ""
+    }
+    displayBGC();
+}
+const edgeCase7 = function() {
+    if(cards[3].textContent === "") {
+        cards[3].textContent = cards[7].textContent
+        cards[7].textContent = ""
+    } 
+    else if(cards[6].textContent === "") {
+        cards[6].textContent = cards[7].textContent
+        cards[7].textContent = ""
+    }
+    else if(cards[11].textContent === ""){
+        cards[11].textContent = cards[7].textContent
+        cards[7].textContent = ""
+    }
+    displayBGC();
+}
+const edgeCase8 = function() {
+    if(cards[4].textContent === "") {
+        cards[4].textContent = cards[8].textContent
+        cards[8].textContent = ""
+    } 
+    else if(cards[9].textContent === "") {
+        cards[9].textContent = cards[8].textContent
+        cards[8].textContent = ""
+    }
+    else if(cards[12].textContent === ""){
+        cards[12].textContent = cards[8].textContent
+        cards[8].textContent = ""
+    }
+    displayBGC();
+}
+const edgeCase11 = function() {
+    if(cards[7].textContent === "") {
+        cards[7].textContent = cards[11].textContent
+        cards[11].textContent = ""
+    } 
+    else if(cards[10].textContent === "") {
+        cards[10].textContent = cards[11].textContent
+        cards[11].textContent = ""
+    }
+    else if(cards[15].textContent === ""){
+        cards[15].textContent = cards[11].textContent
+        cards[11].textContent = ""
+    }
+    displayBGC();
+}
+const edgeCase13 = function() {
+    if(cards[12].textContent === "") {
+        cards[12].textContent = cards[13].textContent
+        cards[13].textContent = ""
+    } 
+    else if(cards[9].textContent === "") {
+        cards[9].textContent = cards[13].textContent
+        cards[13].textContent = ""
+    }
+    else if(cards[14].textContent === ""){
+        cards[14].textContent = cards[13].textContent
+        cards[13].textContent = ""
+    }
+    displayBGC();
+}
+const edgeCase14 = function() {
+    if(cards[13].textContent === "") {
+        cards[13].textContent = cards[14].textContent
+        cards[14].textContent = ""
+    } 
+    else if(cards[10].textContent === "") {
+        cards[10].textContent = cards[14].textContent
+        cards[14].textContent = ""
+    }
+    else if(cards[15].textContent === ""){
+        cards[15].textContent = cards[14].textContent
+        cards[14].textContent = ""
+    }
+    displayBGC();
+}
+
+const middleCase5 = function() {
+    if(cards[1].textContent === ""){
+        cards[1].textContent = cards[5].textContent
+        cards[5].textContent = ""
+    } 
+    else if (cards[4].textContent === ""){
+        cards[4].textContent = cards[5].textContent
+        cards[5].textContent = ""
+    }
+    else if (cards[9].textContent === ""){
+        cards[9].textContent = cards[5].textContent
+        cards[5].textContent = ""
+    }
+    else if (cards[6].textContent === ""){
+        cards[6].textContent = cards[5].textContent
+        cards[5].textContent = ""
+    }
+    displayBGC();
+}
+const middleCase6 = function() {
+    if(cards[2].textContent === ""){
+        cards[2].textContent = cards[6].textContent
+        cards[6].textContent = ""
+    } 
+    else if(cards[7].textContent === ""){
+        cards[7].textContent = cards[6].textContent
+        cards[6].textContent = ""
+    }
+    else if(cards[10].textContent === ""){
+        cards[10].textContent = cards[6].textContent
+        cards[6].textContent = ""
+    }
+    else if(cards[5].textContent === ""){
+        cards[5].textContent = cards[6].textContent
+        cards[6].textContent = ""
+    }
+   displayBGC();
+}
+const middleCase9 = function() {
+    if(cards[8].textContent === ""){
+        cards[8].textContent = cards[9].textContent
+        cards[9].textContent = ""
+    } 
+    else if(cards[13].textContent === ""){
+        cards[13].textContent = cards[9].textContent
+        cards[9].textContent = ""
+    }
+    else if(cards[10].textContent === ""){
+        cards[10].textContent = cards[9].textContent
+        cards[9].textContent = ""
+    }
+    else if(cards[5].textContent === ""){
+        cards[5].textContent = cards[9].textContent
+        cards[9].textContent = ""
+    }
+displayBGC();
+}
+const middleCase10 = function() {
+    if(cards[11].textContent === ""){
+        cards[11].textContent = cards[10].textContent
+        cards[10].textContent = ""
+        } 
+    else if(cards[14].textContent === ""){
+        cards[14].textContent = cards[10].textContent
+        cards[10].textContent = ""
+        }
+    else if(cards[9].textContent === ""){
+        cards[9].textContent = cards[10].textContent
+        cards[10].textContent = ""
+        }
+    else if(cards[6].textContent === ""){
+        cards[6].textContent = cards[10].textContent
+        cards[10].textContent = ""
+        }
+displayBGC();
+}
+//koniec divow
 
 //nasluchiwanie na klik
 button.addEventListener("click", initialization)
+
+if (IsStarted === 0/*1*/) {
+    cards[0].addEventListener('click',cornerCase0)
+    cards[1].addEventListener('click',edgeCase1)
+    cards[2].addEventListener('click',edgeCase2)
+    cards[3].addEventListener('click',cornerCase3)
+    cards[4].addEventListener('click',edgeCase4)
+    cards[5].addEventListener('click',middleCase5)
+    cards[6].addEventListener('click',middleCase6)
+    cards[7].addEventListener('click',edgeCase7)
+    cards[8].addEventListener('click',edgeCase8)
+    cards[9].addEventListener('click',middleCase9)
+    cards[10].addEventListener('click',middleCase10)
+    cards[11].addEventListener('click',edgeCase11)
+    cards[12].addEventListener('click',cornerCase12)
+    cards[13].addEventListener('click',edgeCase13)
+    cards[14].addEventListener('click',edgeCase14)
+    cards[15].addEventListener('click',cornerCase15)
+// } 
+// else {
+//     cards[0].addEventListener('click',gameNotStarted)
+//     cards[3].addEventListener('click',gameNotStarted)
+//     cards[12].addEventListener('click',gameNotStarted)
+//     cards[15].addEventListener('click',gameNotStarted)
+}
