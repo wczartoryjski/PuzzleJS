@@ -4,13 +4,11 @@ const button = document.querySelector("button");
 const timer = document.querySelector('#timer');
 let cards = document.querySelectorAll("div");
 cards = [...cards];
-// console.log(cards);
 
 let currentTime = 0;
 let IsStarted = 0;
 
 //przetasowanie tablicy z numerami
-// console.log(board);
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -20,7 +18,6 @@ function shuffle(array) {
     }
     return array;
 }
-// console.log(shuffle(board));
 //koniec tasowania
 
 //odliczanie czasu (wrazliwe na multiclick)
@@ -61,12 +58,16 @@ function displayBGC(startTime, countUpTimer) {
     // cards[13].textContent==="14" &&
     // cards[14].textContent==="15"
     ){
+        console.log('czas startu '+startTime)
         const endTime = new Date().getTime();
-        const gameTime = startTime-endTime/1000
-        alert(`Wygrana! Twój czas gry ${gameTime}`)
-        console.log('wygrana')
+        console.log('czas koncowy ' + endTime)
+        const gameTime = (endTime-startTime)/1000
+        console.log(gameTime)
+        alert(`Wygrana! Twój czas gry: ${gameTime}`)
+        //resetowanie stopera
         clearTimeout(countUpTimer)
         currentTime=0
+        //resetowanie planszy
         shuffle(board);
         for (let i = 15;i>=0; i--){
             cards[i].textContent = board[i];
@@ -88,8 +89,9 @@ function displayBGC(startTime, countUpTimer) {
 
 //funkcjonalnosc przycisku start/restart
 const initialization = function() {
-    const startTime = new Date().getTime();
+    const startTime  = new Date().getTime()
     let countUpTimer = setInterval(countUp,1000)
+    console.log(startTime)
     if (currentTime!==0){
         clearTimeout(countUpTimer)
         currentTime=0
@@ -99,9 +101,9 @@ const initialization = function() {
         cards[i].textContent = board[i];
     }
     //ustawianie koloru tla dla square
-    displayBGC();
+    displayBGC(startTime);
     IsStarted = 1;
-    return IsStarted;
+    return IsStarted, startTime;
 }
 //koniec dzialania przycisku
 
