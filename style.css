@@ -1,6 +1,7 @@
 *{
     box-sizing:border-box;
     position: relative;
+    font-family: arial;
 }
 
 body{
@@ -8,26 +9,37 @@ body{
     background-color: slategray;
     justify-content: center;
 }
-
-.First{
-    display: inline-flex;
+.header{
+    width: 420px;
+    display:flex;
     justify-content: space-between;
-    flex-basis: 25%;
-    height: 10vh;
-    background-color: rgb(131, 70, 70);
-    border: 4px solid white;
-    width: 700px;
-    margin-bottom: 10px;
-    }
-
-.Second{
-    flex-basis: 25%;
-    width: 700px;
-    height: 15vh;
-    background-color: rgb(52, 49, 187);
-    border: 4px solid white;
-    display: flex;
-    justify-content: space-between;
+    align-content: center; 
+}
+.square{
+    width: 100px;
+    height: 100px;
+    border-style:solid;
+    border-color: white;
+    justify-content: center;
     align-content: center;
-    margin-bottom: 5px;
+    font-size: 45px;
+}
+.grid{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width: 420px;
+    height: 420px;
+}
+.button{
+    display: block;
+    border: 3px solid black;
+    font-size: 20px;
+    transition: .3s;
+    padding: 10px 20px;
+}
+button:hover {
+    background-color: #000;
+    color:blue;
 }
