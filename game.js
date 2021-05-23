@@ -7,13 +7,10 @@ cards = [...cards];
 console.log(cards);
 
 let currentTime = 0;
-let currentTime2 = 0;
 let IsStarted = 0;
-
 
 //przetasowanie tablicy z numerami
 console.log(board);
-
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -23,12 +20,11 @@ function shuffle(array) {
     }
     return array;
 }
-
 // console.log(shuffle(board));
 //koniec tasowania
 
 //odliczanie czasu (wrazliwe na multiclick)
-function countUp() {
+function countUp(startTime) {
     currentTime++
     timer.textContent = currentTime +' s'
 }
@@ -38,6 +34,11 @@ function countUp() {
 const initialization = function() {
     const startTime = new Date().getTime();
     let countUpTimer = setInterval(countUp,1000)
+    if (currentTime!==0){
+        console.log('dziala')
+        clearTimeout(countUpTimer)
+        currentTime=0
+    }
     shuffle(board);
     console.log(shuffle(board));
     for (let i = 15;i>=0; i--){
