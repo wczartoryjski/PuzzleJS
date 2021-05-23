@@ -16,32 +16,35 @@ body{
     align-content: center; 
 }
 .square{
+    display:flex;
     width: 100px;
     height: 100px;
     border-style:solid;
     border-color: white;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     font-size: 45px;
     background-color: cyan;
 }
 .empty{
+    display:flex;
     width: 100px;
     height: 100px;
     border-style:solid;
     border-color: white;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     font-size: 45px;
     background-color: gray;
 }
 .correct{
+    display:flex;
     width: 100px;
     height: 100px;
     border-style:solid;
     border-color: white;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     font-size: 45px;
     background-color: rgb(0, 130, 39);
 }
