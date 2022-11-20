@@ -37,26 +37,26 @@ function displayBGC(startTime, countUpTimer) {
             cards[i].className = 'empty'
         }
         else{
-            cards[i].className = 'square' 
+            cards[i].className = 'square'
         }
     }
 
-    if(cards[0].textContent==="1" 
-    //&&
-    // cards[1].textContent==="2" &&
-    // cards[2].textContent==="3" &&
-    // cards[3].textContent==="4" &&
-    // cards[4].textContent==="5" &&
-    // cards[5].textContent==="6" &&
-    // cards[6].textContent==="7" &&
-    // cards[7].textContent==="8" &&
-    // cards[8].textContent==="9" &&
-    // cards[9].textContent==="10" &&
-    // cards[10].textContent==="11" &&
-    // cards[11].textContent==="12" &&
-    // cards[12].textContent==="13" &&
-    // cards[13].textContent==="14" &&
-    // cards[14].textContent==="15"
+    if(cards[0].textContent==="1"
+    &&
+    cards[1].textContent==="2" &&
+    cards[2].textContent==="3" &&
+    cards[3].textContent==="4" &&
+    cards[4].textContent==="5" &&
+    cards[5].textContent==="6" &&
+    cards[6].textContent==="7" &&
+    cards[7].textContent==="8" &&
+    cards[8].textContent==="9" &&
+    cards[9].textContent==="10" &&
+    cards[10].textContent==="11" &&
+    cards[11].textContent==="12" &&
+    cards[12].textContent==="13" &&
+    cards[13].textContent==="14" &&
+    cards[14].textContent==="15"
     ){
         console.log('czas startu '+startTime)
         const endTime = new Date().getTime();
@@ -80,7 +80,7 @@ function displayBGC(startTime, countUpTimer) {
                 cards[i].className = 'empty'
             }
             else{
-                cards[i].className = 'square' 
+                cards[i].className = 'square'
             }
         }
     }
